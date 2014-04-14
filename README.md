@@ -30,4 +30,3 @@ That's it!
 Licence
 --------------------------------
 Even if it is not widely disclosed, this software is open source under the LGPL3 license.
-
