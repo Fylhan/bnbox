@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /Web/Perso/bnbox/web/
+	
+	RewriteRule ^(?:|index.html)$ index.php?module=home&action=home [L,QSA]
+	RewriteRule ^([0-9]*)/?evenements.html?$ index.php?module=home&action=Actualites&page=$1 [L,QSA]
+	RewriteRule ^evenement-([0-9]*).html?$ index.php?module=home&action=Actualite&id=$1 [L,QSA]
+	RewriteRule ^activites.html$ index.php?module=default&action=activites [L,QSA]
+	RewriteRule ^qui-sommes-nous.html$ index.php?module=default&action=qui-sommes-nous [L,QSA]
+	RewriteRule ^politique-accessibilite.html$ index.php?module=default&action=politique-accessibilite [L,QSA]
+	RewriteRule ^contact.html$ index.php?module=contact&action=Contact [L,QSA]
+	RewriteRule ^feed.xml$ index.php?module=api&action=Feed [L,QSA]
+	RewriteRule ^sitemap.xml$ index.php?module=api&action=Sitemap [L,QSA]
+	RewriteRule ^sitemap.html$ index.php?module=api&action=Sitemap&type=human [L,QSA]
+	
+	RewriteRule ^([0-9]*)/?administration.html$ index.php?module=administration&action=home&page=$1 [L,QSA]
+	RewriteRule ^administration-listes-diffusion.html$ index.php?module=administration&action=ListesDiffusion&page=$1 [L,QSA]
+	RewriteRule ^administration-test.html$ index.php?module=administration&action=Test [L,QSA]
+	RewriteRule ^upload-picture.html$ index.php?module=upload&action=Picture [L,QSA]
+	RewriteRule ^upload-file.html$ index.php?module=upload&action=File [L,QSA]
+	RewriteRule ^galery.json$ index.php?module=upload&action=Galery [L,QSA]
+	
+	RewriteRule ^(.*).html$ index.php?module=error&action=$1 [L,QSA]
+</IfModule>

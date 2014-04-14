@@ -1,0 +1,10 @@
+*.buildpath
+*.settings
+*.externalToolBuilders
+*.project
+*.onetoc2
+vendor
+app/cache
+app/upload
+config.php
+*~

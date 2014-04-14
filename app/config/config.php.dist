@@ -1,0 +1,64 @@
+<?php
+
+// Constantes d'état du site
+define('ETAT', 'production'); // developpement, production, maintenance
+define('HEBERGEMENT', 'en ligne'); // local, en ligne
+define('DEBUG', false); // true, false
+
+if (HEBERGEMENT == 'local') {
+	define('SITE_PATH', 'http://localhost/Web/Perso/bnbox/web/');
+}
+else {
+	define('SITE_PATH', 'http://la-bnbox.fr/test/');
+}
+if (!defined('SecurityKey')) {
+	define('SecurityKey', 'PUTYOURSECURITYKEYHERE'); // bcrypt
+}
+// Constantes de chemins
+// Convention : on ne termine jamais terminé par un slash !
+if (!defined('POSITION_RELATIVE')) {
+	define('POSITION_RELATIVE', '');
+}
+define('APP_PATH', __DIR__ .'/../../app');
+define('DATA_PATH', APP_PATH);
+define('SRC_PATH', __DIR__ .'/../../src');
+define('INCLUDE_PATH', SRC_PATH);
+define('ENTITY_PATH', SRC_PATH . '/Bnbox/Entity');
+define('VENDOR_PATH', __DIR__ .'/../../vendor');
+define('WEB_PATH4SRC', __DIR__ .'/../../web');
+define('WEB_PATH', '');
+
+define('CACHE_PATH', APP_PATH.'/cache');
+define('CONFIG_PATH', APP_PATH.'/config');
+define('DOCUMENT_PATH', APP_PATH . '/document');
+define('ILLUSTRATION_PATH', APP_PATH . '/illustration');
+define('EMAIL_PATH', CACHE_PATH . '/email');
+define('BNCODE_PATH', SRC_PATH . '/Service/bncode');
+define('GESHI_PATH', BNCODE_PATH . '/geshi');
+define('FEED_PATH', SITE_PATH . 'feed.xml');
+
+// Constantes pour la connection à la base de données
+if (HEBERGEMENT == 'local') {
+	define("BDD_HOST", 'localhost');
+	define("BDD_USER", 'root');
+	define("BDD_MDP", '');
+	define("BDD_NAME", 'bnbox');
+	define('PREFIXE_DB', 'bnbox_');
+}
+else {
+	define("BDD_HOST", 'fqdgfsdg');
+	define("BDD_USER", 'fdsgsdgs');
+	define("BDD_MDP", 'sgfsdg');
+	define("BDD_NAME", 'dsgfsdg');
+	define('PREFIXE_DB', 'bnbox_');
+}
+
+if (DEBUG) {
+	ini_set('display_errors', true);
+	ini_set('log_errors', true);
+}
+error_reporting(E_ALL);
+ini_set('error_log', CACHE_PATH.'/error_log.txt');
+define('MessageLog', CACHE_PATH.'/message_log.txt');
+
+?>

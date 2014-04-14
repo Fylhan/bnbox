@@ -1,0 +1,17 @@
+.deployignore
+.gitignore
+.buildpath
+.settings
+.externalToolBuilders
+.project
+.onetoc2
+/.htaccess
+composer.phar
+app/config/config.php
+app/config/data.php
+.git
+wiki
+app/cache
+app/upload
+vendor
+*.bat
