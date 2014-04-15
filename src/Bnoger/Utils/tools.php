@@ -503,6 +503,22 @@ function getLocale() {
 }
 
 /**
+ * Récupère le bundle de la page courante
+ * @return string Le bundle de la page courante
+ */
+function getBundle() {
+    if (isset($_GET['bundle']) && $_GET['bundle'] != NULL) {
+        $str = parserUrl($_GET['bundle'], false, false);
+    }
+    else if (isset($_POST['bundle']) && $_POST['bundle'] != NULL) {
+        $str = parserUrl($_POST['bundle'], false, false);
+    }
+    else {
+        $str = '';
+    }
+    return $str;
+}
+/**
  * Récupère le module de la page courante
  * @return string Le module de la page courante
  */

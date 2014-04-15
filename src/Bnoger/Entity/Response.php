@@ -8,6 +8,8 @@ class Response
 
     private $_vars = array();
 
+    private $_page = array();
+
     private $_headers = array();
 
     private $_body;
@@ -51,19 +53,19 @@ class Response
         echo $this->_body;
     }
 
-    public function addBlock($key, $block)
+    public function addPage($key, $value)
     {
-        $this->_blocks[$key] = $block;
+        $this->_page[$key] = $value;
     }
 
-    public function getBlock($key)
+    public function getPageValue($key)
     {
-        return $this->_blocks[$key];
+        return $this->_page[$key];
     }
 
-    public function getBlocks()
+    public function getPage()
     {
-        return $this->_blocks;
+        return $this->_page;
     }
 
     public function addVar($key, $value)
@@ -112,4 +114,3 @@ class Response
         $this->_body = $value;
     }
 }
-?>

@@ -23,22 +23,22 @@ class Request
 
     public function route($defaults = null)
     {
-        // $requestUri = substr($_SERVER['REQUEST_URI'],
-        // strpos($_SERVER['REQUEST_URI'],'/'.basename(__FILE__)) +
-        // strlen('/'.basename(__FILE__))
-        // );
-        // if (empty($requestUri)) {
-        // return array();
-        // }
-        
-        // $path = parse_url($requestUri, PHP_URL_PATH);
-        // preg_match('#^(/(?P<module>\w+))(/(?P<action>\w+)/?)?$#', $path, $matches);
-        
-        // $args = explode('&', parse_url($requestUri, PHP_URL_QUERY));
-        // $matches['args'] = $args;
+//         $requestUri = $_SERVER['REQUEST_URI'], strpos($_SERVER['REQUEST_URI'], '/' . basename(__FILE__)) + strlen('/' . basename(__FILE__)));
+//         if (empty($requestUri)) {
+//             return array();
+//         }
+//         $path = parse_url($requestUri, PHP_URL_PATH);
+//         preg_match('#^(/(?P<module>\w+))(/(?P<action>\w+)/?)?$#', $path, $matches);
+//         $args = explode('&', parse_url($requestUri, PHP_URL_QUERY));
+//         $matches['args'] = $args;
+//         var_dump($requestUri);
+//         var_dump($path);
+//         var_dump($matches);
+        $bundle = getBundle();
         $module = getModule();
         $action = getAction();
         $this->_route = array(
+            'bundle' => (NULL != $bundle ? $bundle : $defaults['bundle']),
             'module' => (NULL != $module ? $module : $defaults['module']),
             'action' => (NULL != $action ? $action : $defaults['action'])
         );
@@ -68,6 +68,11 @@ class Request
     public function getRoute()
     {
         return $this->_route;
+    }
+
+    public function getBundle()
+    {
+        return $this->_route['bundle'];
     }
 
     public function getModule()

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+	<h1><a href="{{ app.url }}">{{ app.name }}</a></h1>
+	<p>{{ app.desc }}</p>
+	
+	<nav id="menu">
+	{% block nav %}
+	{% endblock %}
+	</nav>
+{% endblock header %}
+
+{% block content %}
+	<aside id="bar">
+	{% block aside %}
+	{% endblock aside %}
+	</aside>
+	
+	<article id="mainContent" role="main-content">
+	{% block mainContent %}
+	{% endblock mainContent %}
+	</article>
+{% endblock content %}
+
+{% block footer %}
+	<p>
+		{{ app.name }} - {{ app.description }}<br />
+	</p>
+{% endblock %}
+

@@ -3,7 +3,7 @@
 <html lang="{{ Locale }}">
 <head>
 	<meta charset="{{ Encodage }}" />
-	<base href="{{SitePath}}" />
+	<!-- <base href="{{SitePath}}" /> -->
 	<title>{{ metaTitle }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="author" content="{{ metaAuteur }}" />

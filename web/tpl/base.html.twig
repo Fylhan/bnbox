@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{{ app.locale|default('fr_FR') }}">
+<head>
+	<meta charset="{{ app.charset|default('UTF-8') }}" />
+	<title>{{ page.title|default(app.name~' - '~app.description) }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="author" content="{{ app.authors }}" />
+	<meta name="description" content="{{ page.description|default(app.description) }}" />
+	<meta name="keywords" content="{{ page.keywords|default(app.keywords) }}" />
+	{% block stylesheets %}
+	{% if StyleEnabled %}
+	<!--[if lte IE 9]> 
+		<script text="text/javascript" src="{{JS_PATH}}/html5.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{CSS_PATH}}/ie.min.css" />
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" title="{{ app.name }}" href="{{CSS_PATH}}/style.css" />
+	{% endif %}
+	{% endblock stylesheets %}
+	{% block properties %}
+	<link rel="start" href="{{ app.url }}" title="Accueil" />
+	<link rel="help" href="politique-accessibilite.html" title="Accessibilité" />
+	<link rel="accesskeys" href="politique-accessibilite.html#accesskeys" title="Raccourcis et Accesskeys" />
+	<link rel="shortcut icon" href="{{IMG_PATH}}/favicon.ico" type="image/ico" />
+	{% endblock properties %}
+</head>
+<body>
+
+<header id="header" role="header">
+{% block header %}
+{% endblock header %}
+</header>
+
+<section id="content">
+{% block content %}
+{% endblock content %}
+</section>
+
+<footer id="footer" role="footer">
+{% block footer %}
+{% endblock footer %}
+</footer>
+
+{% block js %}
+{% endblock %}
+</body>
+</html>

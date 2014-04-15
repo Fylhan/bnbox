@@ -1,34 +1,22 @@
 <?php
 date_default_timezone_set('Europe/Paris');
 
-// Nom du site
-define('SiteCode', 'bnbox');
-define('SiteName', 'La Bnbox !');
-define('SiteDesc', 'Créateur de sourires.');
+define('LOCALE', 'fr_FR');
+define('CHARSET', 'UTF-8');
+define('SITE_CODE', 'bnbox');
+define('SITE_NAME', 'La Bnbox !');
 
-define('LastModification', mktime(0, 0, 0, 03, 21, 2013));
-if (!defined('LastModificationActualites')) {
-	define('LastModificationActualites', LastModification);
-}
-define('ParameterFilePath', CACHE_PATH . '/data-user.php');
-define('BanFilePath', CACHE_PATH . '/ban.json');
-define('GaleryFilePath', CACHE_PATH . '/galery.json');
-define('UploadDir', DATA_PATH . '/upload/');
+$app = array(
+    'locale' => LOCALE,
+    'charset' => CHARSET,
+    'name' => SITE_NAME,
+    'url' => SITE_PATH,
+    'title' => SITE_NAME,
+    'description' => 'Créateur de sourires',
+    'authors' => 'Fylhan',
+    'keywords' => 'bnbox,bn,cours,entraide,scolaire,collège,lycée,résumé,corrigé',
+);
 
-// Constantes meta
-if (!defined('Encodage')) {
-	define('Encodage', 'UTF-8');
-}
-if (!defined('DefaultLocale')) {
-	define('DefaultLocale', 'fr_FR');
-}
-define('Author', 'Vincent et Olivier');
-define('MetaTitleDefault', SiteName . ' - ' . SiteDesc);
-define('MetaKwDefault', 'Dieu, église, protestant, évangélique, cep, saint-maur');
-define('MetaDescDefault', SiteDesc . ' de Saint-Maur');
-define('MetaTitle', SiteName);
-define('MetaKw', 'Dieu, église, cep, saint-maur');
-define('MetaDesc', SiteName);
 
 // Autres variables
 define('HAAT', 'haat');
@@ -48,14 +36,8 @@ if (!defined('NbItemPerFeed')) {
 if (!defined('EmailAdmin')) {
 	define('EmailAdmin', 'olivier@maridat.com');
 }
-if (DEBUG) {
-	define('EmailFlambeaux', EmailAdmin);
-	define('EmailGDJ', EmailAdmin);
-	define('EmailContact', EmailAdmin);
-} else {
-	define('EmailFlambeaux', 'flambeaux@cepsaintmaur.fr');
-	define('EmailGDJ', 'gdj@cepsaintmaur.fr');
-	define('EmailContact', 'contact@cepsaintmaur.fr');
+if (!defined('EmailContact')) {
+	define('EmailContact', 'olivier@maridat.com');
 }
 if (!defined('CodeStats')) {
 	define('CodeStats', '');
@@ -85,17 +67,10 @@ if (!defined('CacheEnabled')) {
 	define('CacheEnabled', !DEBUG);
 }
 if (!defined('CompressionEnabled')) {
-	define('CompressionEnabled', true);
+	define('CompressionEnabled', false);
 }
-define('StyleEnabled', true);
+if (!defined('StyleEnabled')) {
+	define('StyleEnabled', true);
+}
 $t = 1; // Tabindex
 
-define('OK_REDIRECTION', 1);
-define('OK_NONBLOQUANT', 2);
-define('OK_BLOQUANT', 3);
-define('ERREUR_BLOQUANT', 0);
-define('ERREUR_NONBLOQUANT', -1);
-define('ERREUR_REDIRECTION', -2);
-define('ERREUR', 0);
-define('OK', 1);
-define('NEUTRE', 2);

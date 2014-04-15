@@ -4,32 +4,36 @@ namespace Bnoger\Action;
 abstract class Action
 {
 
-    protected $_controller;
+    /**
+     * 
+     * @var \Bnoger\Controller\MainController
+     */
+    protected $controller;
 
     public function __construct($controller)
     {
-        $this->_controller = $controller;
+        $this->controller = $controller;
     }
 
     abstract public function launch($params = NULL);
 
     public function render($toDisplay)
     {
-        $this->_controller->render($toDisplay);
+        $this->controller->render($toDisplay);
     }
 
     public function printOut()
     {
-        $this->_controller->getResponse()->printOut();
+        $this->controller->getResponse()->printOut();
     }
 
-    protected function _forward($module, $action, $params = null)
+    protected function _forward($bundle, $module, $action, $params = null)
     {
-        $this->_controller->forward($module, $action, $params);
+        $this->controller->forward($bundle, $module, $action, $params);
     }
 
     protected function _redirect($url, $permanent = false)
     {
-        $this->_controller->redirect($url, $permanent);
+        $this->controller->redirect($url, $permanent);
     }
 }
