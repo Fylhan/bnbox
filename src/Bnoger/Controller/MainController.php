@@ -121,6 +121,7 @@ class MainController
         $globalParams = array(
             'JS_PATH' => JS_PATH,
             'CSS_PATH' => CSS_PATH,
+            'FONT_PATH' => FONT_PATH,
             'IMG_PATH' => IMG_PATH,
             'FEED_PATH' => FEED_PATH,
             'StyleEnabled' => StyleEnabled,
@@ -136,7 +137,6 @@ class MainController
         // -- Minify CSS and JS (TODO: move somewhere else)
         if (DEBUG) {
             $cssFiles = array(
-                'ie',
                 'style',
                 'highlight-default',
                 'redactor'
@@ -147,7 +147,6 @@ class MainController
                 }
             }
             $jsFiles = array(
-                'html5',
                 'contact'
             );
             foreach ($jsFiles as $jsFile) {

@@ -2,6 +2,7 @@
 <html lang="{{ app.locale|default('fr_FR') }}">
 <head>
 	<meta charset="{{ app.charset|default('UTF-8') }}" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{{ page.title|default(app.name~' - '~app.description) }}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="author" content="{{ app.authors }}" />
@@ -9,38 +10,42 @@
 	<meta name="keywords" content="{{ page.keywords|default(app.keywords) }}" />
 	{% block stylesheets %}
 	{% if StyleEnabled %}
+	<link href="{{CSS_PATH}}/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="{{CSS_PATH}}/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+	<link href="{{CSS_PATH}}/style.css" rel="stylesheet" type="text/css" title="{{ app.name }}" />
 	<!--[if lte IE 9]> 
 		<script text="text/javascript" src="{{JS_PATH}}/html5.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="{{CSS_PATH}}/ie.min.css" />
+		<script text="text/javascript" src="{{JS_PATH}}/respond.min.js"></script>
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" title="{{ app.name }}" href="{{CSS_PATH}}/style.css" />
 	{% endif %}
 	{% endblock stylesheets %}
 	{% block properties %}
 	<link rel="start" href="{{ app.url }}" title="Accueil" />
 	<link rel="help" href="politique-accessibilite.html" title="Accessibilité" />
 	<link rel="accesskeys" href="politique-accessibilite.html#accesskeys" title="Raccourcis et Accesskeys" />
-	<link rel="shortcut icon" href="{{IMG_PATH}}/favicon.ico" type="image/ico" />
+	<link rel="shortcut icon" type="image/gif" href="{{IMG_PATH}}/favicon.gif" />
 	{% endblock properties %}
 </head>
 <body>
 
-<header id="header" role="header">
+<header class="container" id="header" role="header">
 {% block header %}
 {% endblock header %}
 </header>
 
-<section id="content">
+<section class="container" id="content">
 {% block content %}
 {% endblock content %}
 </section>
 
-<footer id="footer" role="footer">
+<footer class="container" id="footer" role="footer">
 {% block footer %}
 {% endblock footer %}
 </footer>
 
 {% block js %}
+<script text="text/javascript" src="{{JS_PATH}}/jquery.min.js"></script>
+<script text="text/javascript" src="{{JS_PATH}}/bootstrap.min.js"></script>
 {% endblock %}
 </body>
 </html>

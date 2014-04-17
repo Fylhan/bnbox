@@ -4,27 +4,32 @@
 	<h1><a href="{{ app.url }}">{{ app.name }}</a></h1>
 	<p>{{ app.desc }}</p>
 	
-	<nav id="menu">
+	<nav class="nav-bar" id="menu">
 	{% block nav %}
 	{% endblock %}
 	</nav>
 {% endblock header %}
 
 {% block content %}
-	<aside id="bar">
+<div class="row">
+	<aside class="col-md-2" id="bar">
 	{% block aside %}
+	Great menu!
 	{% endblock aside %}
 	</aside>
 	
-	<article id="mainContent" role="main-content">
+	<article class="col-md-10" id="mainContent" role="main-content">
 	{% block mainContent %}
 	{% endblock mainContent %}
 	</article>
+</div>
 {% endblock content %}
 
 {% block footer %}
+<div class="class="col-md-10 col-md-offset-2">
 	<p>
 		{{ app.name }} - {{ app.description }}<br />
 	</p>
+</div>
 {% endblock %}
 
