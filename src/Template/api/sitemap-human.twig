@@ -1,0 +1,23 @@
+{# api/sitemap-human.tpl #}
+
+{% extends 'layout-base.tpl' %}
+
+{% block content %}
+<article id="mainContent" role="main" class="sitemapPage page">
+	<header>
+		<h1>Plan du site</h1>
+	</header>
+	<ul>
+	{%  for url in UrlEntries %}
+		<li>{% if "" != url.loc %}<a href="{{ url.loc }}">{% endif %}{{ url.title }}</a>{% if "" != url.description %} - {{ url.description }}{% endif %}</li>
+		{% if "" != url.children %}
+		<ul>
+		{%  for urlChild in url.children %}
+			<li>{% if "" != urlChild.loc %}<a href="{{ urlChild.loc }}">{% endif %}{{ urlChild.title }}</a><small>{% if "" != urlChild.description %} - {{ urlChild.description }}{% endif %}</small></li>
+		{% endfor %}
+		</ul>
+		{% endif %}
+	{% endfor %}
+	</ul>
+</article>
+{% endblock %}

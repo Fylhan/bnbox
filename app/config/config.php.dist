@@ -24,9 +24,13 @@ define('DATA_PATH', APP_PATH);
 define('SRC_PATH', __DIR__ .'/../../src');
 define('INCLUDE_PATH', SRC_PATH);
 define('ENTITY_PATH', SRC_PATH . '/Bnbox/Entity');
+define('TPL_PATH', SRC_PATH.'/Bnbox/Template');
 define('VENDOR_PATH', __DIR__ .'/../../vendor');
 define('WEB_PATH4SRC', __DIR__ .'/../../web');
 define('WEB_PATH', '');
+define('CSS_PATH', WEB_PATH.'/css');
+define('FONT_PATH', WEB_PATH.'/font');
+define('IMG_PATH', WEB_PATH.'/img');
 
 define('CACHE_PATH', APP_PATH.'/cache');
 define('CONFIG_PATH', APP_PATH.'/config');
